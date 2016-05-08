@@ -8,7 +8,10 @@
 
 echo "start"
 
-if [ ! -d  "~/.virtualenvs/liu" ]; then
+echo $HOME
+
+if [ ! -d  ".virtualenvs/liu" ]; then
+    echo "hello"
     mkvirtualenv liu
 fi
 workon liu
