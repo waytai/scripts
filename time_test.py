@@ -15,4 +15,6 @@ else:
 t2 = t1 - timedelta(minutes=delta)
 print t2
 
+every_delta = 20
+
 
