@@ -17,7 +17,11 @@ print t2
 
 every_delta = 20
 
-end_time = '2016-05-17 16:30:00'
 
+end_time = '2016-05-17 16:30:00'
 dt = datetime.strptime(end_time, "%Y-%m-%d %H:%M:%S")
+print dt
+
+end_time = '2016-05-17-16:30:00'
+dt = datetime.strptime(end_time, "%Y-%m-%d-%H:%M:%S")
 print dt
