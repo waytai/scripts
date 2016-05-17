@@ -17,4 +17,5 @@ print t2
 
 every_delta = 20
 
-
+dt = datetime.strptime("2016-05-17 16:30:00", "%Y-%m-%d %H:%M:%S")
+print dt
