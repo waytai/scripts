@@ -7,11 +7,11 @@
 #!/bin/bash
 
 echo "start"
-
-echo $HOME
-
-if [ ! -d  ".virtualenvs/liu" ]; then
-    echo "hello"
+Path="/home/wayne/.virtualenvs/liu"
+if [ ! -d  "$Path" ]; then
+    echo "make liu"
     mkvirtualenv liu
+else
+    source `which virtualenvwrapper.sh`
+    workon mxchip
 fi
-workon liu
