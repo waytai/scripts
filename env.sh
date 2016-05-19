@@ -7,9 +7,8 @@
 #!/bin/bash
 
 echo "start"
-Path="/home/wayne/.virtualenvs/liu"
+Path="$HOME/.virtualenvs/liu"
 if [ ! -d  "$Path" ]; then
-    echo "make liu"
     mkvirtualenv liu
 else
     source `which virtualenvwrapper.sh`
