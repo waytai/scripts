@@ -7,4 +7,5 @@ tcpdump -w test.pcap -i wlan0
 tcpdump -nnr test.pcap
 
 
-
+16进制显示
+tcpdump -X -i eth1 udp
