@@ -17,13 +17,13 @@ class gameSocket(Protocol):
     def dataReceived(self, data):
         print 'Get data:' + str(data)
         server_ip_port = self.transport.server.getHost()
-        server_ip = ip_port.host
-        server_port = ip_port.port
+        server_ip = server_ip_port.host
+        server_port = server_ip_port.port
         print "="*20, server_ip, server_port
 
         client_ip_port = self.transport.client
-        client_ip = ip_port[0]
-        client_port = str(ip_port[1])
+        client_ip = client_ip_port[0]
+        client_port = str(client_ip_port[1])
 
         print "="*20, client_ip, client_port
         self.transport.write('bingo!i got your msg:'+ str(data))
