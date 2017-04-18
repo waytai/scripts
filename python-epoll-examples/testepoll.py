@@ -6,6 +6,7 @@
 #!/usr/bin/env python
 #-*- coding:utf-8 -*-
 import socket
+import pdb
 import select
 import Queue
 #创建socket对象
@@ -38,6 +39,7 @@ while True:
     if not events:
         print "epoll超时无活动连接，重新轮询......"
         continue
+    #pdb.set_trace()
     print "有" , len(events), "个新事件，开始处理......"
 
     for fd, event in events:
@@ -68,12 +70,15 @@ while True:
         elif event & select.EPOLLIN:
             #接收数据
             data = socket.recv(1024)
-            if data:
+            if len(data):
                 print "收到数据：" , data , "客户端：" , socket.getpeername()
                 #将数据放入对应客户端的字典
                 message_queues[socket].put(data)
                 #修改读取到消息的连接到等待写事件集合(即对应客户端收到消息后，再将其fd修改并加入写事件集合)
                 epoll.modify(fd, select.EPOLLOUT)
+            else:
+                fd_to_socket[fd].close()
+                del fd_to_socket[fd]
         #可写事件
         elif event & select.EPOLLOUT:
             try:
