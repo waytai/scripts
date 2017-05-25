@@ -6,6 +6,11 @@ import (
 	"os"
 )
 
+//使用说明
+//go build serverandclient.go
+// ./serverandclient server 3001
+// ./serverandclient client localhost:3001
+
 ////////////////////////////////////////////////////////
 //
 //错误检查
