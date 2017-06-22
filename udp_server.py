@@ -8,7 +8,10 @@ class Echo(DatagramProtocol):
 
     def datagramReceived(self, data, addr):
         print("received %r from %s" % (data, addr))
+        with open('udp.txt', 'a') as f:
+            f.write(data)
+            f.write('\n')
         self.transport.write(data, addr)
 
-reactor.listenUDP(9999, Echo())
+reactor.listenUDP(11168, Echo())
 reactor.run()
