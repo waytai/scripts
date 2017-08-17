@@ -16,6 +16,8 @@ func main() {
 	fmt.Println("Start server...")
 	for {
 		conn, err := listen.Accept()
+		fmt.Println("##########")
+		fmt.Println(conn.RemoteAddr())
 		checkErr(err)
 		go Handle(conn) // 每次建立一个连接就放到单独的线程内做处理
 	}
@@ -43,6 +45,13 @@ func Handle(conn net.Conn) {
 
 		cmd := strings.Split(string(data), "|")
 		fmt.Println("命令:", cmd)
+		fmt.Println(len(cmd), cmd)
+		if len(cmd) == 1 {
+			fmt.Println("-------------")
+			fmt.Println(cmd[0])
+			os.Exit(-1)
+
+		}
 
 		switch cmd[0] {
 		case "nick":
