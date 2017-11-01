@@ -26,3 +26,8 @@ print str_to_hex
 hex_to_str = ''.join(chr(int(element,16))for element in str_to_hex.split('0x') if len(element))
 print hex_to_str
 
+
+import binascii
+a = "0012"
+print binascii.a2b_hex(a)   #一样的效果
+print a.decode("hex")       #同上面一样的效果
