@@ -1,0 +1,33 @@
+PROGS = main
+all: ${PROGS}
+
+build:
+	go build mqttpubtest.go
+clean:
+	rm -rf mqttpubtest
+run:
+	go run mqttpubtest.go 068df40e2dcff270a39f8d7183864c95 ae3381a23c80e434e2ab7f99a5247185 07c24e20
+
+hello:
+	@echo "hello world"
+	@echo ${PROGS}
+
+stoplora:
+	sudo service loraserver stop
+	sudo service lora-app-server stop
+	sudo service mongodb stop
+
+startlora:
+	sudo service lora-app-server start
+	sudo service loraserver start
+
+rmlora:
+	sudo apt-get remove lora-app-server
+
+update:
+	sudo apt-get update
+	sudo apt-get dist-upgrade
+
+clear:
+	sudo apt-get autoremove
+	sudo apt-get autoclean
