@@ -13,6 +13,10 @@
 #define    LISTENQ        20
 #define    SERV_PORT      3002 
 
+//gcc -o testepoll epolltest.c
+// ./testepoll
+// 客户端发送tcp消息到3002端口
+//
 int main(int argc, char* argv[])
 {
     int i, maxi, listenfd, connfd, sockfd, epfd,nfds;
